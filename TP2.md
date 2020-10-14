@@ -137,7 +137,7 @@ Et voilà ! Nous avons cette fois-ci crée un conteneur avec comme image de base
 
 Pour chercher des images disponibles dans le Docker Hub, on peut utiliser la commande `docker search`. Tentons de chercher le terme “mysql” :
 ```sh
-dev $ docker search mysql
+dev $ docker image search mysql
 ```
 Vous devriez observer en sortie une grosse quantité de dépôts dans le Docker Hub. Pour chacun d'eux, on peut observer de nombreuses informations comme le nom, la description, les "stars" et les indicateurs "OFFICIAL" et "AUTOMATED".
 
