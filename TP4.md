@@ -30,7 +30,7 @@ Effectuons maintenant quelques changements dans notre conteneur.
 ```
 Nous venons d'installer vim sur notre conteneur Ubuntu. Cependant, nous savons que si nous tuons le conteneur et que nous le supprimons, nous n'aurons aucun moyen de repartir de ce point sans avoir à retaper ces commandes et télécharger de nouveau le paquet Vim. Pour éviter cela, nous allons faire un commit du conteneur et pousser son image dans un dépôt de notre registre privé ! Tapez exit et le moment est venu de vous créer un compte sur https://hub.docker.com retenez ensuite le nom d'utilisateur car vous en aurez besoin...
 
-Sur votre terminal, trouvez la commande qui vous permet de vous connecter à la registry DockerHub et lorsque la connexion sera bien effectuée vous pourrez passer à la prochaine étape qui sera de créer une variable d'environnement sur votre machine hôte `$UTILISATEUR`qui a pour valeur le nom d'utilisateur que vous avez créé sur le hub.docker.com
+Sur votre terminal, trouvez la commande qui vous permet de vous connecter à la registry DockerHub et lorsque la connexion sera bien effectuée vous pourrez passer à la prochaine étape qui sera de créer une variable d'environnement sur votre machine hôte `$UTILISATEUR`à entrer manuellement et qui a pour valeur le nom d'utilisateur que vous avez créé sur le hub.docker.com
 
 Lancez ensuite la commande suivante en :
 ```sh
