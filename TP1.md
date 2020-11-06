@@ -144,7 +144,7 @@ Tiens, essayons de l’arrêter ! Tapez `exit` sur le terminal du conteneur afin
 ```sh
 dev $ docker container ls
 ```
-La commande `docker container ls` permet de lister les conteneurs s'exécutant sur la machine. En tapant cette commande, vous remarquerez que notre conteneur n'y apparaît pas. Pas de panique, c'est tout à fait normal. En quittant notre conteneur, nous l'avons **stoppé**. Il existe toujours pour Docker cependant, tant qu'on ne lui dit pas explicitement de le supprimer (par la commande `docker container rm`), il restera disponible sur la machine.
+La commande `docker container ls` permet de lister les conteneurs s'exécutant sur la machine. En tapant cette commande, vous remarquerez que notre conteneur n'y apparaît pas cependant vous y voyez plein d'autres (si vous utilisez les environnements mis à disposition). Pas de panique, c'est tout à fait normal. En quittant notre conteneur, nous l'avons **stoppé**. Il existe toujours pour Docker cependant, tant qu'on ne lui dit pas explicitement de le supprimer (par la commande `docker container rm`), il restera disponible sur la machine.
 
 En effet, un conteneur ne marche pas comme une machine virtuelle pour laquelle on doit expressément envoyer un signal de fin de tâche. **Un conteneur ne vit que pour le processus qu'il contient !** Imaginons donc que nous lançons un script (voué à se terminer) au sein d'un conteneur Docker. À la fin de ce script, les processus lancés par le script se termineront mais le conteneur également. Il n'y a aucun intérêt à garder en vie un conteneur n'hébergeant aucun processus tout comme l’on n’aurait aucun intérêt à garder en vie une machine virtuelle qui n'exécute aucun processus et ne ferait que gâcher des ressources.
 
@@ -341,6 +341,8 @@ Sortons du conteneur avec `exit` et tuons-le avec `docker container rm`.
 Maintenant, créons un autre container avec **volume_test**. Nous pouvons voir que le fichier existe toujours dans le volume.
 
 Au départ, l’objectif des volumes peut-être confus mais il prend tout son sens lorsque l'on commence à manipuler les conteneurs afin d’y appliquer des modifications. Retenez que toute écriture de données devant persister après la destruction du conteneur doit passer par un volume.
+
+>- Créez un filtre sur la commande `docker container ls` de façon à n'afficher que les conteneurs ayant comme image une différente de `samuelantunesocto/gotty:v0.3`. (Elle vous sera très utile)
 
 ## 12- Résumé des commandes
 
