@@ -132,7 +132,7 @@ PRETTY_NAME="Alpine Linux v3.5"
 HOME_URL="http://alpinelinux.org"
 BUG_REPORT_URL="http://bugs.alpinelinux.org"
 ```
-Et voilà ! Nous avons cette fois-ci crée un conteneur avec comme image de base une distribution alpine 3.5. Sortez maintenant de ce conteneur en tapant la commande exit.
+Et voilà ! Nous avons cette fois-ci créé un conteneur avec comme image de base une distribution alpine 3.5. Sortez maintenant de ce conteneur en tapant la commande exit.
 ## 4- Chercher des images
 
 Pour chercher des images disponibles dans le Docker Hub, on peut utiliser la commande `docker search`. Tentons de chercher le terme “mysql” :
