@@ -285,7 +285,7 @@ La commande `inspect` interroge le conteneur et retourne un grand nombre d’inf
 
 On peut également utiliser une syntaxe spéciale afin de ne requêter que les informations dont on a besoin. Par exemple, pour récupérer que l'adresse IP du conteneur, on utilise la commande suivante :
 ```sh
-dev $ docker container inspect --format='{{ .NetworkSettings.IPAddress }}' my_daemon
+dev $ docker container inspect --format="{{ .NetworkSettings.IPAddress }}" my_daemon
 ```
 qui devrait afficher en retour l’adresse IP :
 ```sh
