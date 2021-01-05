@@ -23,7 +23,7 @@ C'est donc ce que vous allez devoir construire maintenant en autonomie. Afin de 
 
 7 - Créer un nouveau stage avec une image de base adéquate
 
-8 - Installer les modules nécessaires au runtime de l'application (on utilisera généralement `npm install --only=productio` `
+8 - Installer les modules nécessaires au runtime de l'application (on utilisera généralement `npm install --only=production`
 
 9 - Exposer le port d'écoute de votre application 
 
