@@ -54,7 +54,7 @@ bind = "0.0.0.0:8000"
 worker_class = "gthread"
 threads = int(os.getenv('GUNICORN_CORES','1')) * 2 + 1
 ```
-Utilisez l'éditeur vim (ou le Web IDE) pour créer un fichier Dockerfile. Dans ce fichier, ajoutez le contenu suivant :
+Utilisez l'éditeur vim (ou un Web IDE) pour créer un fichier Dockerfile. Dans ce fichier, ajoutez le contenu suivant :
 
 ```Dockerfile
 # Docker-app/Dockerfile
@@ -97,12 +97,14 @@ Prenons le temps d'étudier ces commandes :
 
 `USER` est une directive permettant de spécifier quel sera l’utilisateur courant. Il est important de spécifier un utilisateur non-root (avec un uid supérieur ou égal à 1000) pour des raisons de sécurité.
 
-`ENTRYPOINT` et `CMD` permettent de définir la commande qui est lancée au démarrage de notre conteneur. On parlera des différences entre ces deux directives plus tard dans la formation.
+`ENTRYPOINT` et `CMD` permettent de définir la commande qui est lancée au démarrage de notre conteneur. On a parlé des particularités liées à leur utilisation ensemble (CMD en argument de ENTRYPOINT)
 
-On peut ensuite créer notre image en utilisant la commande :
+On peut ensuite créer notre image en utilisant la commande suivante :
 
 `docker image build .`
 
 Cett commande devrait alors vous générer une nouvelle image, trouvable via la commande 
 
 `docker images` 
+
+En cherchant l'ID de l'image qui a été générée par le build.
