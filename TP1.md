@@ -313,7 +313,7 @@ dev $ docker container prune
 ```
 Il n'existe pas de moyen pratique de supprimer tous les conteneurs (par exemple un `docker container rm -a`). Cependant, on peut coupler les commandes de manière élégante pour arriver à nos fins.
 ```sh
-dev $ docker container rm $(docker ls --filter 'status=exited' -a -q)
+dev $ docker container rm $(docker ps --filter 'status=exited' -a -q)
 ```
 La commande appelle `docker container rm` en lui passant une liste d'identifiants de conteneurs récupérée à l'aide de la commande `docker container ls`.
 
