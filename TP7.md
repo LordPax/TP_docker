@@ -81,9 +81,9 @@ L'exécution des instructions avec la commande `RUN` suit un workflow très part
 
 On peut remarquer que l’ID de l’image construite nous est communiqué en fin de build : `31920ffe5099` ici.
 
-Il est intéressant de noter qu'il existe une limitation importante à Docker (ou plutôt du système de fichiers dit union fs : Overlay2) : **Nous sommes limités à 122 couches de fichiers !**
+Il est intéressant de noter qu'il existe une limitation importante à Docker (ou plutôt du système de fichiers dit union fs : Overlay2) : **Nous sommes limités à 127 couches de fichiers !**
 
-Si nous créons un Dockerfile et que nous atteignons la limite de 122 couches, nous ne pouvons plus construire par-dessus. Bien qu'en pratique cette limite est difficilement atteignable, il est important de l'avoir en tête afin de factoriser au maximum les instructions dans notre Dockerfile.
+Si nous créons un Dockerfile et que nous atteignons la limite de 127 couches, nous ne pouvons plus construire par-dessus. Bien qu'en pratique cette limite est difficilement atteignable, il est important de l'avoir en tête afin de factoriser au maximum les instructions dans notre Dockerfile.
 
 Un avantage de la factorisation à lieu lors de la suppression des fichiers. En effet, comme dans Git, la suppression d’un fichier lors d’un commit ne le supprime pas de l’historique (la couche précédente dans notre cas). Il est donc recommandé de procéder aux tâches de purge dans le mêmes lignes que celle qui font des installations. Exemple :
 ```Dockerfile
