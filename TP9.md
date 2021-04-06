@@ -1,9 +1,9 @@
-# Docker - TP7 : Utilisation de Docker-Compose
+# Docker - TP9 : Utilisation de Docker-Compose
 > **Objectifs du TP** :
 >- Prise en main de l'outil docker-compose
 >
 
-### CE TP fait suite à ce que nous avons réalisé lors du TP6
+### CE TP fait suite à ce que nous avons réalisé lors des TPs précédants
 
 ## 2- Création du docker-compose
 
