@@ -97,6 +97,8 @@ PRETTY_NAME="Alpine Linux v3.8"
 HOME_URL="http://alpinelinux.org"
 BUG_REPORT_URL="http://bugs.alpinelinux.org"
 ```
+(Si rien ne s'affiche, scrollez vers le haut et puis vers le bas ou bien faites `entrer` plusieurs fois afin de raffraîchir l'écran)
+
 Sortez maintenant de ce conteneur en tapant la commande `exit`.
 
 Si on jette de nouveau un coup d'œil sur la sortie de la commande `docker image ls`, on remarque que deux images possèdent le même identifiant ! Comment cela peut-il être possible ? Une image n'est-elle pas censée posséder un identifiant unique ?
