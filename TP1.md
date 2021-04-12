@@ -191,7 +191,7 @@ dev $ docker container attach my_container
 ```
 
 Pour se détacher du conteneur ce coup-ci sans mettre fin au processus /bin/bash qui tourne, tapez `ctrl+p,ctrl+q`.
-(Il sera préférable d'utiliser la console pour cette commande plutôt que le WebIDE, elle ne fonctionnera pas sur les environnements qui vous ont été provisionnées, vous pouvez passer à la suite.)
+(Il sera préférable d'utiliser la console pour cette commande plutôt que le WebIDE, elle ne fonctionnera pas sur les environnements qui vous ont été provisionnés, vous pouvez passer à la suite.)
 Vérifiez que le conteneur tourne encore (plus vrai dans les environnements mis à disposition car vous avez pas pu lancer les raccourcis, il faut donc faire un exit et le conteneur sera donc en statut arrêté).
 
 ## 5- Créer un conteneur démon
