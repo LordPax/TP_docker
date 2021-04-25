@@ -30,3 +30,15 @@ $ curl localhost:3002
 $ curl localhost:3003
 > Hello Tutu`
 ```
+
+## 2 - Docker-Compose Applicatif 
+
+Maintenant que vous savez manipuler les services docker-compose avec des `ports` et des `volumes`, creéz un fichier `docker-compose.yaml` permettant de déployer l'image suivante `samuelantunesocto/app:v0.1`. 
+- Cette application écoute sur le port `8000` 
+- Le code applicatif se trouve dans le dossier `/app` 
+- La commande permettant de démarrer le conteneur est `gunicorn --config config.py app:app` et est lancée dans le dossier `/app` comme précisé.
+
+Une fois le fichier `docker-compose.yaml` créé faites un `up` et vérifiez que vous avez bien accès à l'application en accédant à l'URL `localhost:X` où X est le port que vous avez choisi d'ouvrir sur votre poste localhost. 
+
+Vous devriez donc y voir apparaître : 
+> "Hello Docker!"
