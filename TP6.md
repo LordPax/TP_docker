@@ -99,6 +99,8 @@ Prenons le temps d'étudier ces commandes :
 
 `ENTRYPOINT` et `CMD` permettent de définir la commande qui est lancée au démarrage de notre conteneur. On a parlé des particularités liées à leur utilisation ensemble (CMD en argument de ENTRYPOINT)
 
+## 1- Build de votre image Dockerfile
+
 On peut ensuite créer notre image en utilisant la commande suivante :
 
 `docker image build .`
@@ -108,3 +110,13 @@ Cett commande devrait alors vous générer une nouvelle image, trouvable via la 
 `docker images` 
 
 En cherchant l'ID de l'image qui a été générée par le build.
+Pour vérifier que votre application fonctionne bien lancez ensuite la commande : 
+
+`docker container run -d -p 8000:8000 <image_id>`
+
+Qui vous permettra alors de faire un :
+
+```bash
+$ curl localhost:8000
+> Hello Docker !
+```
