@@ -99,7 +99,7 @@ Prenons le temps d'étudier ces commandes :
 
 `ENTRYPOINT` et `CMD` permettent de définir la commande qui est lancée au démarrage de notre conteneur. On a parlé des particularités liées à leur utilisation ensemble (CMD en argument de ENTRYPOINT)
 
-## 1- Build de votre image Dockerfile
+## 2- Build de votre image Dockerfile
 
 On peut ensuite créer notre image en utilisant la commande suivante :
 
