@@ -9,21 +9,31 @@ Nous avons vu dans le cours qu'il était possible et d'ailleurs recommandée de 
 
 C'est donc ce que vous allez devoir construire maintenant en autonomie. Afin de réaliser ce TP vous allez devoir réaliser les actions suivantes : 
 
-1 - Créer une applicatin en Node.js qui permet de faire un "HelloWorld from Node" lorsqu'on accède à la racine de votre application. Pour les besoins du TP vous pouvez aussi prendre n'importe quel template de base qui permet d'afficher une page d'accueil.
+1 - Créer un fichier `app.js` pour mettre une application en Node.js qui permet de faire un "Hello World" lorsqu'on accède à la racine de votre application. Pour les besoins du TP vous pouvez aussi prendre n'importe quel template de base qui permet d'afficher une page d'accueil. Le bout de code ici par exemple : https://expressjs.com/fr/starter/hello-world.html
 
 2 - Créer un fichier `Dockerfile` dans lequel vous aurez un premier stage basé sur une image officielle "node" de DockerHub
 
-3 - Ajouter le fichier `package.json` sur l'image
+3 - Créer en local le fichier `package.json` avec le contenu suivant :
+
+```json
+{
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}
+```
+
+puis copiez ce fichier sur l'image Dockerfile
 
 4 - Installer tous les modules nodes en dependency et/ou devDependency (choix libre en fonction de votre configuration)
 
-5 - Ajouter votre code applicatif sur l'image 
+5 - Ajouter votre fichier applicatif `app.js` sur l'image 
 
-6 - Compiler votre code (à minima), lancer vos tests, linters (ou autres)
+6 - Compiler votre code (à minima), lancer vos tests, linters (ou autres) - uniquement si vous avez des fichier statiques
 
 7 - Créer un nouveau stage avec une image de base adéquate
 
-8 - Installer les modules nécessaires au runtime de l'application (on utilisera généralement `npm install --only=production`
+8 - Installer les modules nécessaires au runtime de l'application en allant récupérer les modules installés dans le stage précédent
 
 9 - Exposer le port d'écoute de votre application 
 
