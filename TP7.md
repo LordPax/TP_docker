@@ -20,9 +20,9 @@ services:
     - "8000:8000"
 ```
 
-Nous allons à présent utiliser docker-compose une première fois pour construire notre image :
+Nous allons à présent utiliser docker compose une première fois pour construire notre image :
 ```
-dev $ docker-compose build
+dev $ docker compose build
 Building app
 Step 1/11 : FROM python:3.7-alpine
  ---> c02a3409ee5b
@@ -66,7 +66,7 @@ Removing intermediate container b9260f53b0a6
 Successfully built 31920ffe5099
 Successfully tagged $UTILISATEUR/app:v0.1
 ```
-Cette commande utilise `docker-compose`, mais en réalité, elle ne fait qu’encapsulser pour vous un appel à la commande `docker image build` :
+Cette commande utilise `docker compose`, mais en réalité, elle ne fait qu’encapsulser pour vous un appel à la commande `docker image build` :
 ```sh
 dev $ docker image build -t=$UTILISATEUR/app:v0.1 .
 ```
@@ -106,7 +106,7 @@ Notez bien que toutes les commandes sont enchaînées dans une seule instruction
 
 Il est à présent temps de démarrez l’application. Pour ce faire, exécutez la commande suivante :
 ```sh
-dev $ docker-compose up
+dev $ docker compose up
 Creating network "docker-app_default" with the default driver
 Creating docker-app_app_1 ... done
 Attaching to docker-app_app_1
