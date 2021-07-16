@@ -11,7 +11,7 @@
 Nous allons commencer par prendre en main l'outil en ligne de commande permettant de créer et gérer des conteneurs et des images. Vérifions tout d'abord que le démon Docker s'exécute bel et bien sur notre machine virtuelle :
 
 ```sh
-dev $ docker info && docker version
+$ docker info && docker version
 ```
 
 Normalement si tout se passe bien vous devriez voir apparaitre une sortie de la forme suivante:
@@ -91,7 +91,7 @@ Allons plus loin en créant notre premier conteneur !
 Très bien ! Créons désormais notre premier conteneur en lançant une commande avec Docker :
 
 ```sh
-dev $ docker container run -i -t ubuntu /bin/bash
+$ docker container run -i -t ubuntu /bin/bash
 ```
 
 Que nous dit cette ligne ?
@@ -142,7 +142,7 @@ Do you want to continue? [Y/n]
 
 Tiens, essayons de l’arrêter ! Tapez `exit` sur le terminal du conteneur afin d'en sortir. Vous revenez ainsi à votre shell classique. Tapons la commande suivante afin de lister les conteneurs.
 ```sh
-dev $ docker container ls
+$ docker container ls
 ```
 La commande `docker container ls` permet de lister les conteneurs s'exécutant sur la machine. En tapant cette commande, vous remarquerez que notre conteneur n'y apparaît pas. Pas de panique, c'est tout à fait normal. En quittant notre conteneur, nous l'avons **stoppé**. Il existe toujours pour Docker cependant, tant qu'on ne lui dit pas explicitement de le supprimer (par la commande `docker container rm`), il restera disponible sur la machine.
 
@@ -152,7 +152,7 @@ En effet, un conteneur ne marche pas comme une machine virtuelle pour laquelle o
 
 Mais alors comment lister nos conteneurs morts ? C'est simple, tapez la commande suivante :
 ```sh
-dev $ docker container ls -a
+$ docker container ls -a
 ```
 Le flag `-a` permet de lister l’intégralité des conteneurs, même ceux qui sont dans un état `terminated`. Vous devriez désormais voir votre conteneur dans la liste, essayez donc de retrouver son identifiant.
 
@@ -160,13 +160,13 @@ Le flag `-a` permet de lister l’intégralité des conteneurs, même ceux qui s
 
 Relançons un autre conteneur mais cette fois-ci avec une option supplémentaire permettant de lui donner un nom :
 ```sh
-dev $ docker container run --name my_container -i -t ubuntu /bin/bash
+$ docker container run --name my_container -i -t ubuntu /bin/bash
 ```
 Nous avons lancé un nouveau conteneur nommé **my_container**. Tapez `exit` une fois que vous êtes dedans.
 
 On peut maintenant redémarrer le conteneur avec la commande suivante :
 ```sh
-dev $ docker container start my_container
+$ docker container start my_container
 ```
 Si on relance la commande `docker container ls` (mais cette fois **sans le flag** `-a`), on peut voir que notre conteneur est toujours en vie et exécute de manière isolée un shell.
 
@@ -174,7 +174,7 @@ Si on relance la commande `docker container ls` (mais cette fois **sans le flag*
 
 Le conteneur a redémarré avec les mêmes options que lors de son premier lancement. Une session interactive nous attend sur le conteneur. Pour y accéder, nous devons nous **attacher** au conteneur.
 ```sh
-dev $ docker container attach my_container
+$ docker container attach my_container
 ```
 Vous devriez voir apparaître un shell comme la première fois. Appuyez sur la touche « Entrée » si vous ne le voyez pas.
 De la même manière que la commande précédente, on peut également passer l'id du conteneur.
@@ -186,8 +186,8 @@ Pour sortir du conteneur en mode attaché sur un shell, tapez simplement `exit`.
 
 Relancez le conteneur et attachez-vous de nouveau
 ```sh
-dev $ docker container start my_container
-dev $ docker container attach my_container
+$ docker container start my_container
+$ docker container attach my_container
 ```
 
 Pour se détacher du conteneur ce coup-ci sans mettre fin au processus /bin/bash qui tourne, tapez `ctrl+p,ctrl+q`.
@@ -198,7 +198,7 @@ Vérifiez que le conteneur tourne encore (plus vrai dans les environnements mis 
 
 En complément de lancer des conteneurs avec des sessions de shell interactive, on peut également lancer des conteneurs qui vont exécuter des programmes longs. Tentez donc de taper la commande suivante :
 ```sh
-dev $ docker container run --name my_daemon -d ubuntu /bin/sh -c "while true; do echo hello world; sleep 1; done"
+$ docker container run --name my_daemon -d ubuntu /bin/sh -c "while true; do echo hello world; sleep 1; done"
 ```
 Nous utilisons la commande docker container run couplée au flag `-d` pour dire à Docker que l'on veut que le conteneur soit lancé en arrière plan.
 
@@ -215,7 +215,7 @@ Très bien. Allons maintenant jeter un œil sur ce qu'il se passe dans notre con
 
 Une autre commande existe, `docker container logs`, permettant de voir les logs produits par le conteneur sur la sortie standard **stdout**. Tapez donc la commande suivante :
 ```sh
-dev $ docker container logs my_daemon
+$ docker container logs my_daemon
 ```
 Vous devriez voir la sortie attendue :
 ```
@@ -228,13 +228,13 @@ hello world
 ```
 Ici, la commande `docker container logs` affiche les dernières sorties (sur **stdout**) produites par le script exécuté dans notre conteneur. Cependant, il est également possible de voir ces sorties au fur et à mesure qu'elles sont produites de la même façon que `docker container attach` grâce à la commande suivante :
 ```sh
-dev $ docker container logs -f my_daemon
+$ docker container logs -f my_daemon
 ```
 On voit apparaître "hello world" au fur et à mesure et en tapant Ctrl-C, on sort de la commande `docker container logs` sans pour autant stopper le conteneur. Ce qui est pratique pour déboguer le programme dans un conteneur sans stopper son exécution (par exemple, analyser les stacktraces d'un programme Java).
 
 Imaginons maintenant que l'on veuille les 20 dernières lignes de logs pour des questions de lisibilité (on veut simplement vérifier la bonne exécution d'un programme sans avoir la totalité des logs produits par `docker container logs`). Pour cela, on passe simplement un nouvel argument à `docker container logs`, l’option `--tail`, qui permet de récupérer les dernières logs produits. Par exemple :
 ```sh
-dev $ docker container logs --tail 20 my_daemon
+$ docker container logs --tail 20 my_daemon
 ```
 Nous retournera les 20 dernières lignes produite par notre script. Pratique!
 
@@ -242,7 +242,7 @@ Nous retournera les 20 dernières lignes produite par notre script. Pratique!
 
 Il serait pratique de connaître les processus qu'un conteneur exécute. Pour ce faire, il existe la commande `docker container top`.
 ```sh
-dev $ docker container top my_daemon
+$ docker container top my_daemon
 ```
 Cette commande va lister tous les processus qui s'exécutent dans notre conteneur de la même manière que l'on utiliserait la commande top de Linux pour lister les processus.
 ```sh
@@ -256,7 +256,7 @@ root  18857  16597  0  15:39  ?    00:00:00  sleep 1
 On peut également inspecter une quantité d'informations pratique sur notre conteneur au format JSON en utilisant la commande `docker container inspect`.
 
 ```sh
-dev $ docker container inspect my_daemon
+$ docker container inspect my_daemon
 [
   {
     "Id": "613bdd482[...]",
@@ -285,7 +285,7 @@ La commande `inspect` interroge le conteneur et retourne un grand nombre d’inf
 
 On peut également utiliser une syntaxe spéciale afin de ne requêter que les informations dont on a besoin. Par exemple, pour récupérer que l'adresse IP du conteneur, on utilise la commande suivante :
 ```sh
-dev $ docker container inspect --format="{{ .NetworkSettings.IPAddress }}" my_daemon
+$ docker container inspect --format="{{ .NetworkSettings.IPAddress }}" my_daemon
 ```
 qui devrait afficher en retour l’adresse IP :
 ```sh
@@ -297,7 +297,7 @@ Si nécessaire, on peut donner plusieurs conteneurs en argument afin de retourne
 
 Maintenant que nous avons bien joué avec notre conteneur, il est temps de le stopper. Pas de mystère, on utilise la commande `docker container stop` pour cela.
 ```sh
-dev $ docker container stop my_daemon
+$ docker container stop my_daemon
 ```
 Facile !
 
@@ -305,15 +305,15 @@ Facile !
 
 Si vous voulez supprimer un conteneur pour de bon avec tout son contenu (afin qu'il ne soit même plus listé dans les conteneurs stoppés), vous pouvez utiliser la commande `docker container rm`.
 ```sh
-dev $ docker container rm my_daemon
+$ docker container rm my_daemon
 ```
 Il existe maintenant un moyen simple de supprimer tous les conteneurs qui sont déjà stoppés avec la commande `docker container prune`.
 ```sh
-dev $ docker container prune
+$ docker container prune
 ```
 Il n'existe pas de moyen pratique de supprimer tous les conteneurs (par exemple un `docker container rm -a`). Cependant, on peut coupler les commandes de manière élégante pour arriver à nos fins.
 ```sh
-dev $ docker container rm $(docker ps --filter 'status=exited' -a -q)
+$ docker container rm $(docker ps --filter 'status=exited' -a -q)
 ```
 La commande appelle `docker container rm` en lui passant une liste d'identifiants de conteneurs récupérée à l'aide de la commande `docker container ls`.
 
@@ -326,11 +326,11 @@ Pour conserver les modifications d'un conteneur, on peut attacher un volume de d
 
 Commençons par créer un nouveau volume : **volume_test** :
 ```sh
-dev $ docker volume create volume_test
+$ docker volume create volume_test
 ```
 Maintenant que nous avons créé notre volume, nous allons monter ce volume sur un nouveau conteneur. Pour le faire, nous utilisons le flag `-v` (ou `--volume`) de la commande `docker container run` :
 ```sh
-dev $ docker container run -i -t -v volume_test:/volume_test ubuntu /bin/bash
+$ docker container run -i -t -v volume_test:/volume_test ubuntu /bin/bash
 ```
 Notre conteneur a accès au volume **volume_test** et peut y écrire des données. Créons maintenant un fichier dans ce dossier **/volume_test** avec la commande suivante :
 ```
