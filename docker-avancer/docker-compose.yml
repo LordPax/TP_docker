@@ -1,0 +1,27 @@
+version: '3.9'
+services:
+  nginx-toto:
+    image: nginx
+    ports:
+      - "3000:80"
+    volumes:
+      - "./toto:/usr/share/nginx/html"
+  nginx-tata:
+    image: nginx
+    ports:
+      - "3001:80"
+    volumes:
+      - "./tata:/usr/share/nginx/html"
+  nginx-titi:
+    image: nginx
+    ports:
+      - "3002:80"
+    volumes:
+      - "./titi:/usr/share/nginx/html"
+  nginx-tutu:
+    image: nginx
+    ports:
+      - "3003:80"
+    volumes:
+      - "./tutu:/usr/share/nginx/html"
+
